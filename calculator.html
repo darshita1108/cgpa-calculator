@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+     table,th,td{
+     	         background-color: darkgrey;
+               border: 1px black;
+               font-family:verdana;
+                }
+     table{width:80%;
+     	float:center;
+     	align-self:center;
+          }
+     th,td{padding:10px;}
+     td{text-align:center;}
+     body{
+          background-image: url("a2.jpg");
+          background-size:cover;
+          background-repeat:no-repeat;
+          background-attachment:fixed;
+          background-position:center center;
+        }
+
+</style>
+
+</head>
+
+<!--<script>
+var t = 0;
+var size = 2;
+</script>-->
+
+<body>
+<!--<form>
+<input type="button" value="Home Page" onClick="redirect()">
+</form>-->
+
+<div id="subs" style="margin:auto;">
+<table style="background-color:grey;margin:auto;margin-top:12%">
+<tr>
+<th><h1>Subjects</h1></th>
+<th><h1>Marks</h1></th>
+<th><h1>Credit</h1></th>
+</tr>
+<tr>
+<th>Subject:</th>
+<td>Marks  <input type="number" min="0" max="100" id="s1m" onchange="cgpa()"></td>
+<td>Credit  <input type="number" min="0" max="10" id="s1c" onchange="cgpa()"></td>
+</tr>
+<tr>
+<th>Subject:</th>
+<td>Marks   <input type="number" min="0" max="100" id="s2m" onchange="cgpa()"></td>
+<td>Credit  <input type="number" min="0" max="10" id="s2c" onchange="cgpa()"></td>
+</tr>
+<tr>
+<th>Subject:</th>
+<td>Marks  <input type="number" min="0" max="100" id="s3m" onchange="cgpa()"></td>
+<td>Credit  <input type="number" min="0" max="10" id="s3c" onchange="cgpa()"></td>
+</tr>
+<tr>
+<th>Subject:</th>
+<td>Marks  <input type="number" min="0" max="100" id="s4m" onchange="cgpa()"></td>
+<td>Credit  <input type="number" min="0" max="10" id="s4c" onchange="cgpa()"></td>
+</tr>
+<tr>
+<th>Subject:</th>
+<td>Marks  <input type="number" min="0" max="100" id="s5m" onchange="cgpa()"></td>
+<td>Credit  <input type="number" min="0" max="10" id="s5c" onchange="cgpa()"></td>
+</tr>
+<tr>
+<th>Subject:</th>
+<td>Marks  <input type="number" min="0" max="100" id="s6m" onchange="cgpa()"></td>
+<td>Credit  <input type="number" min="0" max="10" id="s6c" onchange="cgpa()"></td>
+</tr>
+<tr>
+<th>Subject:</th>
+<td>Marks  <input type="number" min="0" max="100" id="s7m" onchange="cgpa()"></td>
+<td>Credit  <input type="number" min="0" max="10" id="s7c" onchange="cgpa()"></td>
+</tr>
+</table>
+</div>
+
+                       <!--<div id="add_new">
+                        <button onclick="inc()">Add</button>
+                       </div>-->
+
+          <!-- <div id="calc">
+           <br>
+           <button onclick="cgpa()">Calculate</button>
+           </div>-->
+ <div id="answer" style="text-align:center;font-size:25px;color:white;margin:21px;font-family:monospace;">
+ <h3>Answer will appear here</h3>
+ </div>
+ </body>
+ <!--function inc(){
+  		document.getElementById("sub" + t).style.display = "block";
+  		t++;
+  		size++;
+  	}-->
+ <script>
+ 
+     function cgpa() {
+     	
+     	var sum_user = 0;
+     	var max_user = 0;
+     	var i;
+     	var sc = [];
+     	var sm = [];
+     
+     	     for(i=1;i<=6;i++){
+     		      sc[i] = document.getElementById("s" + i + "c").value;
+     		      sm[i] = document.getElementById("s" + i + "m").value;
+     		      sm[i] = grade(sm[i]);   
+     		      	}
+     
+     for(i=1;i<=6;i++){
+     	sum_user = sum_user + sc[i]*sm[i];
+     	max_user = max_user + (sc[i]*10);
+     }
+     var cgpa = (sum_user/max_user);
+     cgpa = cgpa*10;
+     document.getElementById("answer").innerHTML = "Your Cgpa is  " + cgpa;
+ }
+  function grade(marks){
+  	if(marks>90){
+  		return 10;
+  	}
+  	else if(marks>80){
+  		return 9;
+  	}
+  	else if(marks>70){
+  		return 8;
+  	}
+  	else if(marks>60){
+
+  		return 7;
+  	}
+  	else if(marks>50){
+  		return 6;
+  	}
+  	else if(marks>40){
+  		return 5;
+  	}
+  	else if(marks>30){
+  		return 4;
+  	}
+  	else if(marks>20){
+  		return 3;
+  	}
+  	else if(marks>10){
+  		return 2;
+  	}
+  	else{
+  		return 1;
+  	}
+}
+  	</script>
+  	</html>
+
+ 
+ 
